@@ -6,28 +6,29 @@ using UnityEngine.UI;
 public class MakeButton : MonoBehaviour
 {
     [SerializeField]
-    private bool physical;
+    private GameObject WeaponPreFab;
 
-    private GameObject hero;
+    private GameObject Player1;
 
     void Start()
     {
         string temp = gameObject.name;
         gameObject.GetComponent<Button>().onClick.AddListener(() => AttachCallback(temp));
-        hero = GameObject.FindGameObjectWithTag("Hero");
+        Player1 = GameObject.FindGameObjectWithTag("Player1");
     }
 
     private void AttachCallback(string btn)
     {
-        if (btn.CompareTo("MeleeAction") == 0)
+        if (btn.CompareTo("AxeButton") == 0)
         {
-            hero.GetComponent<FighterAction>().SelectAction("melee");
-        }else if (btn.CompareTo("RangeAction") == 0)
+            Player1.GetComponent<FighterAction>().SelectAction("axe");
+        }else if (btn.CompareTo("BowButton") == 0)
         {
-            hero.GetComponent<FighterAction>().SelectAction("range");
-        } else
+            Player1.GetComponent<FighterAction>().SelectAction("bow");
+        }else if (btn.CompareTo("GavalinButton") == 0)
         {
-            Debug.Log("HealAction button pressed");
+            Player1.GetComponent<FighterAction>().SelectAction("gavalin");
         }
+
     }
 }

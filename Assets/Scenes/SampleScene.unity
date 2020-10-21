@@ -123,6 +123,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12541018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12541019}
+  - component: {fileID: 12541020}
+  m_Layer: 5
+  m_Name: BowPreFab
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &12541019
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12541018}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0496141, y: 1.0988147, z: 1.0548623}
+  m_Children: []
+  m_Father: {fileID: 87123895}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.10001, y: 395.3524}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &12541020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12541018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e647feca71b7909489095451761ba848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Bow
+  baseDamage: 0
+  multiplier: Dexterity
+  dodge: 0
 --- !u!1 &87123894
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,9 +189,9 @@ GameObject:
   - component: {fileID: 87123898}
   - component: {fileID: 87123899}
   m_Layer: 5
-  m_Name: RangeAction
+  m_Name: BowButton
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -153,7 +205,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 12541019}
   m_Father: {fileID: 932798751}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -212,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422a2f59b141fdc48a284ea6197c00e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physical: 0
+  WeaponPreFab: {fileID: 12541018}
 --- !u!114 &87123899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,9 +323,9 @@ GameObject:
   - component: {fileID: 132750288}
   - component: {fileID: 132750289}
   m_Layer: 5
-  m_Name: HealAction
+  m_Name: AxeButton
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -286,7 +339,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1845398635}
   m_Father: {fileID: 932798751}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -315,7 +369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8770669887257262683, guid: 56b09d39216b13e4ebec0ec544b8aca0, type: 3}
+  m_Sprite: {fileID: -7891146628521642482, guid: 56b09d39216b13e4ebec0ec544b8aca0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -345,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422a2f59b141fdc48a284ea6197c00e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physical: 0
+  WeaponPreFab: {fileID: 1845398634}
 --- !u!114 &132750289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,7 +1361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 621507363d9fd1b4c9e18e4348a96a72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f410c1f9135a5f4f8e74847e3cf1422, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1382,7 +1436,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f75e99b6ba7e6d14d82b9fc3a36508cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2eba5fee4c1969f4195563e9b25cad03, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1457,7 +1511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64abda790593f084f8255ce13ce40ab0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5857f74e1bfbc24699c280e1b16b595, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1609,7 +1663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 621507363d9fd1b4c9e18e4348a96a72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f410c1f9135a5f4f8e74847e3cf1422, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1686,7 +1740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 621507363d9fd1b4c9e18e4348a96a72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f410c1f9135a5f4f8e74847e3cf1422, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1757,9 +1811,9 @@ GameObject:
   - component: {fileID: 641944892}
   - component: {fileID: 641944895}
   m_Layer: 5
-  m_Name: MeleeAction
+  m_Name: GavalinButton
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1773,7 +1827,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1058909635}
   m_Father: {fileID: 932798751}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1794,7 +1849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422a2f59b141fdc48a284ea6197c00e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physical: 0
+  WeaponPreFab: {fileID: 1058909634}
 --- !u!114 &641944893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,7 +1870,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8784748321381093978, guid: 56b09d39216b13e4ebec0ec544b8aca0, type: 3}
+  m_Sprite: {fileID: 3131462886605394980, guid: 56b09d39216b13e4ebec0ec544b8aca0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1933,7 +1988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f75e99b6ba7e6d14d82b9fc3a36508cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2eba5fee4c1969f4195563e9b25cad03, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2412,7 +2467,7 @@ GameObject:
   m_Layer: 5
   m_Name: ActionMenu
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2641,6 +2696,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024859361}
   m_CullTransparentMesh: 0
+--- !u!1 &1058909634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1058909635}
+  - component: {fileID: 1058909636}
+  m_Layer: 5
+  m_Name: GavalinPreFab
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1058909635
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058909634}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0496141, y: 1.0988147, z: 1.0548623}
+  m_Children: []
+  m_Father: {fileID: 641944891}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -118.76668, y: 395.3524}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1058909636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058909634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e647feca71b7909489095451761ba848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Gavalin
+  baseDamage: 0
+  multiplier: Strength
+  dodge: 0
 --- !u!1 &1099372926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2803,6 +2910,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3553807620244052890, guid: 0f6dcbb38e123504f88acbbbea5cfc6e, type: 3}
   m_PrefabInstance: {fileID: 1129523646}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1161725991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1161725992}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1161725992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161725991}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9597958, y: -0.40858832, z: -0.9925964}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1174700454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2947,7 +3084,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64abda790593f084f8255ce13ce40ab0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5857f74e1bfbc24699c280e1b16b595, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3022,7 +3159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6925d9e0590fb184a9d9eb87d7843993, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acc31e6d6d945fd4a976ff4922fc5fdf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3097,7 +3234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64abda790593f084f8255ce13ce40ab0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5857f74e1bfbc24699c280e1b16b595, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3253,7 +3390,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a9e636b0dcbd47469d7fc62619651aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16e1a36b527e2c94e82109c992c56bb5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3330,7 +3467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 621507363d9fd1b4c9e18e4348a96a72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f410c1f9135a5f4f8e74847e3cf1422, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3480,7 +3617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6925d9e0590fb184a9d9eb87d7843993, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acc31e6d6d945fd4a976ff4922fc5fdf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3498,6 +3635,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663717215}
   m_CullTransparentMesh: 0
+--- !u!1 &1845398634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1845398635}
+  - component: {fileID: 1845398636}
+  m_Layer: 5
+  m_Name: AxePreFab
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1845398635
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845398634}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.050003, y: 1.099222, z: 1.055253}
+  m_Children: []
+  m_Father: {fileID: 132750285}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 114.56666, y: 395.3524}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1845398636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845398634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e647feca71b7909489095451761ba848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Axe
+  baseDamage: 0
+  multiplier: Dexterity
+  dodge: 0
 --- !u!1 &1908482190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,7 +3779,7 @@ GameObject:
   m_Layer: 0
   m_Name: GameControllerObject
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3678,7 +3867,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8b4474676704d4147bca15a263371c90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5910c21c4e460d94c88f2659a51618eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
