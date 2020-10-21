@@ -9,18 +9,18 @@ public class FighterAction : MonoBehaviour
     private GameObject hero;
 
     [SerializeField]
-    private GameObject meleePreFab;
+    private GameObject AxePreFab;
 
     [SerializeField]
-    private GameObject rangePreFab;
+    private GameObject BowPreFab;
 
-    // [SerializeField]
-    // private GameObject healPreFab;
+    [SerializeField]
+    private GameObject GavalinPreFab;
 
     /*[SerializeField]
     private Sprite faceIcon; //for changing face/profile icon ex. dead, grimace, etc. NOT NECESSARY */
 
-    private GameObject currentAction;
+    // private GameObject currentAction;
 
     void Awake()
     {
@@ -28,23 +28,22 @@ public class FighterAction : MonoBehaviour
         enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
-    public void SelectAction(string btn)
+    public void SelectWeapon(string btn)
     {
         GameObject target = hero;
         if (tag == "Hero")
         {
             target = enemy;
         }
-        if (btn.CompareTo("melee") == 0)
+        if (btn.CompareTo("axe") == 0)
         {
-            meleePreFab.GetComponent<ActionScript>().Action(target);
-        } else if (btn.CompareTo("range") == 0)
+            AxePreFab.GetComponent<WeaponScript>().Damage(target);
+        } else if (btn.CompareTo("bow") == 0)
         {
-            rangePreFab.GetComponent<ActionScript>().Action(target);
-        } else
+            BowPreFab.GetComponent<WeaponScript>().Damage(target);
+        } else if (btn.CompareTo("sword") == 0)
         {
-            Debug.Log("Healed self!");
-            // healAction.GetComponent<ActionScript>().Action(target);
+            GavalinPreFab.GetComponent<WeaponScript>().Damage(target);
         }
     }
 }

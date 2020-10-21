@@ -49,11 +49,23 @@ public class GameController : MonoBehaviour
             {
                 this.battleMenu.SetActive(true);
             } else
-            {
+            { //I needed to change this to match the names I'm using
                 this.battleMenu.SetActive(false);
-                string actionType = Random.Range(0, 2) == 1 ? "melee" : "range";
-                currentUnit.GetComponent<FighterAction>().SelectAction(actionType);
+                if (Random.Range(0, 3) == 0)
+                {
+                    string WeaponType =  "bow";
+                    currentUnit.GetComponent<FighterAction>().SelectWeapon(WeaponType);
+                } else if (Random.Range(0, 3) == 1)
+                {
+                    string WeaponType =  "axe";
+                    currentUnit.GetComponent<FighterAction>().SelectWeapon(WeaponType);
+                } else if (Random.Range(0, 3) == 2)
+                {
+                    string WeaponType =  "gavalin";
+                    currentUnit.GetComponent<FighterAction>().SelectWeapon(WeaponType);
+                }
             }
+
         } else
         {
             NextTurn();
