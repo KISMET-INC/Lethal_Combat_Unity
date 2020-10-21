@@ -69,8 +69,12 @@ public class FighterStats : MonoBehaviour, IComparable
         {
             dead = true;
             gameObject.tag = "Dead";
+            
             Destroy(healthFill);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+            
+
         } else if (damage > 0)
         {
             xNewHealthScale = healthScale.x  * (health/startHealth);
