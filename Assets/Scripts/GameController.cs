@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -18,44 +19,13 @@ public class GameController : MonoBehaviour
     private GameObject battleMenu;
 
     public Text battleText;
+    public Text narration_text;
 
     public bool heroTurn = true;
 
     private GameObject enemy;
     private GameObject hero;
 
-    private void Awake()
-    {
-        battleMenu = GameObject.Find("ActionMenu");
-        panel_text = start_end_canvas.transform.GetChild(0).gameObject;
-        mage_select = start_end_canvas.transform.GetChild(1).gameObject;
-        bowman_select = start_end_canvas.transform.GetChild(2).gameObject;
-    }
-
-
-    public void GameOver(GameObject loser){
-        panel_text.SetActive(true);
-        Debug.Log(Hero);
-
-        if (loser.name == Hero){
-            start_end_text.text= $"You Lost! The {enemy.name} is the winner";
-            enemy.SetActive(false);
-            hero.SetActive(false);
-
-        } else {
-            start_end_text.text= $"You Won! The {Hero} is the winner";
-            hero.SetActive(false);
-            enemy.SetActive(false);
-
-        }
-
-        //Activate winner Avatar
-        if (loser.name == "Mage"){
-            bowman_select.SetActive(true);
-        } else {
-            mage_select.SetActive(true);
-        }
-    }
 
     public void NextTurn(){
         Debug.Log("NextTurn");
@@ -79,15 +49,18 @@ public class GameController : MonoBehaviour
                 {
                     string WeaponType =  "bow";
                     enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
-                } else if (rand == 1)
+                } 
+                else if (rand == 1)
                 {
                     string WeaponType =  "axe";
                     enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
-                } else if (rand == 2)
+                } 
+                else if (rand == 2)
                 {
                     string WeaponType =  "sword";
                     enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
                 }
+
             heroTurn = true;
         }
     }
@@ -97,8 +70,59 @@ public class GameController : MonoBehaviour
         this.hero = hero;
         this.enemy = enemy;
         battleText.gameObject.SetActive(true);
-        battleText.text= $"You chose the {hero.name}!\n FIGHT!";
+        if(hero.name == "Mage"){
+            battleText.text= $"You Chose Kristen the {hero.name}!\n FIGHT!";
+        } else {
+            battleText.text= $"You Chose Kim the {hero.name}!\n FIGHT!";
+        }
+
         heroTurn = true;
         NextTurn();
     }
+
+
+    
+    private void Awake()
+    {
+        battleMenu = GameObject.Find("ActionMenu");
+        panel_text = start_end_canvas.transform.GetChild(0).gameObject;
+        mage_select = start_end_canvas.transform.GetChild(1).gameObject;
+        bowman_select = start_end_canvas.transform.GetChild(2).gameObject;
+    }
+
+
+    public void GameOver(GameObject loser){
+        panel_text.SetActive(true);
+        Debug.Log(Hero);
+
+        if (loser.name == Hero){
+            start_end_text.text= $"You Lost! The {enemy.name} is the winner";
+            enemy.SetActive(false);
+            hero.SetActive(false);
+
+        } else {
+            start_end_text.text= $"You Won! The {Hero} is the winner";
+            hero.SetActive(false);
+            enemy.SetActive(false);
+        }
+
+        //Activate winner Avatar
+        if (loser.name == "Mage"){
+            bowman_select.SetActive(true);
+            GameObject mage_pad = this.GetComponent<Selection_Script>().mage_pad;
+            mage_pad.SetActive(false);
+
+        } else {
+            mage_select.SetActive(true);
+            GameObject bowman_pad = this.GetComponent<Selection_Script>().bowman_pad;
+            bowman_pad.SetActive(false);
+        }
+
+        Invoke("Restart",3);
+    }
+    
+    private void Restart() {
+        SceneManager.LoadScene("SampleScene");
+    }
+
 }

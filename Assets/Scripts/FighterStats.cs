@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class FighterStats : MonoBehaviour
 {
-    // [SerializeField]
-    // private Animator animator;
-
     [SerializeField]
     private GameObject healthFill;
 
@@ -54,9 +51,4 @@ public class FighterStats : MonoBehaviour
             healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
         }
     }
-
-    // public bool GetDead()
-    // {
-    //     return gameObject.tag == "Dead";
-    // }
 }

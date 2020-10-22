@@ -52,8 +52,6 @@ public class WeaponScript : MonoBehaviour
         targetStats.Health -= damage;
         targetStats.UpdateHealthBar();
 
-
-
         GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
 

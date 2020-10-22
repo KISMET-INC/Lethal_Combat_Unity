@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MakeButton : MonoBehaviour{
 
     private GameObject Player1;
+    public GameObject ActionMenu;
     void Start()
     {
         string temp = gameObject.name;
@@ -26,5 +27,6 @@ public class MakeButton : MonoBehaviour{
         {
             Player1.GetComponent<FighterAction>().SelectWeapon("sword");
         }
+        ActionMenu.SetActive(false);
     }
 }
