@@ -86,7 +86,7 @@ public class GameController : MonoBehaviour
                     enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
                 } else if (rand == 2)
                 {
-                    string WeaponType =  "gavalin";
+                    string WeaponType =  "sword";
                     enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
                 }
             heroTurn = true;

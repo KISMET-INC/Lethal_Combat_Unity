@@ -19,7 +19,6 @@ public GameObject bowman_select;
     }
 
     public void youClickedKim() {
-        //gameController = GameObject.Find("GameControllerObject");
 
         Debug.Log("You ClickedKim the bowman as your hero");
         this.gameObject.GetComponent<GameController>().Hero = bowman_prefab.name.ToString();
@@ -38,7 +37,6 @@ public GameObject bowman_select;
     }
 
     public void youClickedKristen() {
-        //gameController = GameObject.Find("GameControllerObject");
 
         Debug.Log("You Clicked Kristen the mage as your hero");
         this.gameObject.GetComponent<GameController>().Hero = mage_prefab.name.ToString();

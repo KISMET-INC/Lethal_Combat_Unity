@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MakeButton : MonoBehaviour
-{
-    private GameObject Player1;
+public class MakeButton : MonoBehaviour{
 
+    private GameObject Player1;
     void Start()
     {
         string temp = gameObject.name;
