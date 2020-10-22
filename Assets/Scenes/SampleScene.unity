@@ -4148,6 +4148,7 @@ MonoBehaviour:
   start_end_canvas: {fileID: 1498814935}
   start_end_text: {fileID: 611627155}
   Hero: 
+  battleMenu: {fileID: 932798750}
   battleText: {fileID: 842642576}
   heroTurn: 1
 --- !u!4 &2043164415
@@ -4580,7 +4581,7 @@ PrefabInstance:
       objectReference: {fileID: 694018696}
     - target: {fileID: 5335279410472936263, guid: b0fc3836a7fe43f4baf7ae9b5e2c457b, type: 3}
       propertyPath: Health
-      value: 60
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5335279410472936263, guid: b0fc3836a7fe43f4baf7ae9b5e2c457b, type: 3}
       propertyPath: Dexterity
@@ -4944,7 +4945,7 @@ PrefabInstance:
       objectReference: {fileID: 588677657}
     - target: {fileID: 7800934077221355584, guid: 6a4e21559e9791542880a211c9dd0d51, type: 3}
       propertyPath: Health
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7800934077221355584, guid: 6a4e21559e9791542880a211c9dd0d51, type: 3}
       propertyPath: Dexterity

@@ -11,11 +11,12 @@ public class MakeButton : MonoBehaviour
     {
         string temp = gameObject.name;
         gameObject.GetComponent<Button>().onClick.AddListener(() => AttachCallback(temp));
-        Player1 = GameObject.FindGameObjectWithTag("Hero");
     }
 
     private void AttachCallback(string btn)
     {
+        Player1 = GameObject.FindGameObjectWithTag("Hero");
+
         if (btn.CompareTo("AxeButton") == 0)
         {
             Player1.GetComponent<FighterAction>().SelectWeapon("axe");
