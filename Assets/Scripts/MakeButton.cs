@@ -27,6 +27,5 @@ public class MakeButton : MonoBehaviour
         {
             Player1.GetComponent<FighterAction>().SelectWeapon("sword");
         }
-
     }
 }
