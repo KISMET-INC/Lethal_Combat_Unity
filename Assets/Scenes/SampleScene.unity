@@ -692,8 +692,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: -429}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -0.8, y: -409.9}
+  m_SizeDelta: {x: 827.1366, y: 83.65391}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &245300424
 MonoBehaviour:
@@ -722,7 +722,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 50
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -2130,7 +2130,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Choose Your  Hero
+  m_Text: 'LETHAL COMBAT BEGINS...
+
+    Choose Your  Hero
 
 '
 --- !u!222 &611627156
@@ -2795,7 +2797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -80}
+  m_AnchoredPosition: {x: 0, y: -40}
   m_SizeDelta: {x: 234.5473, y: 294.93076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &932798752
@@ -4928,7 +4930,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5335279411202161869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 98, y: 117, z: 1413.0999}
+  m_LocalPosition: {x: 94.90001, y: 75.23001, z: 1413.0999}
   m_LocalScale: {x: 119.90789, y: 137.89407, z: 0}
   m_Children:
   - {fileID: 518202799}
@@ -5084,7 +5086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7800934076877214952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -91.90001, y: 71.76998, z: -3982.7996}
+  m_LocalPosition: {x: -95, y: 30, z: -3982.7996}
   m_LocalScale: {x: 119.9079, y: 137.89409, z: 59.95395}
   m_Children:
   - {fileID: 370604595}
