@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     private List<FighterStats> fighterStats;
-    
+
     public GameObject start_end_canvas;
     public Text start_end_text;
 
@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
 
 
 
-    private GameObject battleMenu;
+    public GameObject battleMenu;
 
     public Text battleText;
 
@@ -29,22 +29,23 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        battleMenu = GameObject.Find("ActionMenu");
+       // battleMenu = GameObject.Find("ActionMenu");
         panel_text = start_end_canvas.transform.GetChild(0).gameObject;
         mage_select = start_end_canvas.transform.GetChild(1).gameObject;
         bowman_select = start_end_canvas.transform.GetChild(2).gameObject;
     }
 
 
-    public void GameOver(GameObject loser){ 
+    public void GameOver(GameObject loser){
         panel_text.SetActive(true);
-        Debug.Log(Hero);
+        Debug.Log($"Hero {Hero}");
+        Debug.Log($"Loser {loser.name}");
 
         if (loser.name == Hero){
             start_end_text.text= $"You Lost! The {loser.name} is the winner";
             enemy.SetActive(false);
             hero.SetActive(false);
-            
+
         } else {
             start_end_text.text= $"You Won! The {Hero} is the winner";
             hero.SetActive(false);
@@ -57,31 +58,45 @@ public class GameController : MonoBehaviour
             bowman_select.SetActive(true);
         } else {
             mage_select.SetActive(true);
-        }        
+        }
     }
 
     public void NextTurn(){
-        
-                
+
+
         Debug.Log("NextTurn");
         //battleText.gameObject.SetActive(false);
-        
+
         if(!enemy.activeSelf){
             Debug.Log("Enemy is dead");
-            GameOver(enemy);  
+            GameOver(enemy);
 
         } else if(!hero.activeSelf){
             Debug.Log("Hero is dead");
-            GameOver(hero);  
+            GameOver(hero);
 
-        } else if(heroTurn){
+        } else if(heroTurn){ 
+            Debug.Log("Hero turn");
             this.battleMenu.SetActive(true);
-            heroTurn = false;   
+            heroTurn = false;
 
         } else {
             this.battleMenu.SetActive(false);
-            string actionType = Random.Range(0, 2) == 1 ? "melee" : "range";
-            enemy.GetComponent<FighterAction>().SelectAction(actionType);
+            
+            int rand = Random.Range(0, 3);
+                if ( rand == 0)
+                {
+                    string WeaponType =  "bow";
+                    enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
+                } else if (rand == 1)
+                {
+                    string WeaponType =  "axe";
+                    enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
+                } else if (rand == 2)
+                {
+                    string WeaponType =  "gavalin";
+                    enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
+                }
             heroTurn = true;
         }
     }
@@ -95,51 +110,4 @@ public class GameController : MonoBehaviour
         NextTurn();
     }
 
-    
-
-    void Start()
-    {
-        
-        
-        // fighterStats = new List<FighterStats>();
-        // GameObject hero = GameObject.FindGameObjectWithTag("Hero");
-        // FighterStats currentFighterStats = hero.GetComponent<FighterStats>();
-        // currentFighterStats .CalculateNextTurn(0);
-        // fighterStats.Add(currentFighterStats);
-
-        // GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-        // currentFighterStats = enemy.GetComponent<FighterStats>();
-        // currentFighterStats .CalculateNextTurn(0);
-        // fighterStats.Add(currentFighterStats);
-        // fighterStats.Sort();
-        // this.battleMenu.SetActive(false);
-
-        // NextTurn();
-    }
-
-    public void NextTurn2fffff()
-    {
-        battleText.gameObject.SetActive(false);
-        FighterStats currentFighterStats = fighterStats[0];
-        fighterStats.Remove(currentFighterStats);
-        if (!currentFighterStats.GetDead())
-        {
-            GameObject currentUnit = currentFighterStats.gameObject;
-            currentFighterStats.CalculateNextTurn(currentFighterStats.nextTurn);
-            fighterStats.Add(currentFighterStats);
-            fighterStats.Sort();
-            if (currentUnit.tag == "Hero")
-            {
-                this.battleMenu.SetActive(true);
-            } else
-            {
-                this.battleMenu.SetActive(false);
-                string actionType = Random.Range(0, 2) == 1 ? "melee" : "range";
-                currentUnit.GetComponent<FighterAction>().SelectAction(actionType);
-            }
-        } else
-        {
-            NextTurn();
-        }
-    }
 }

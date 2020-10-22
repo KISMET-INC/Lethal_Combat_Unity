@@ -9,8 +9,6 @@ TagManager:
   - Dead
   - Mage_Select
   - Bowman_Select
-  - Enemy_Select
-  - Hero_Select
   layers:
   - Default
   - TransparentFX
