@@ -28,21 +28,20 @@ public class GameController : MonoBehaviour
 
 
     public void NextTurn(){
-        Debug.Log("NextTurn");
 
         if(!enemy.activeSelf){
-            Debug.Log("Enemy is dead");
             GameOver(enemy);
 
         } else if(!hero.activeSelf){
-            Debug.Log("Hero is dead");
             GameOver(hero);
 
         } else if(heroTurn){
+
             this.battleMenu.SetActive(true);
             heroTurn = false;
 
         } else {
+            
             this.battleMenu.SetActive(false);
             int rand = Random.Range(0, 3);
                 if ( rand == 0)
@@ -92,31 +91,32 @@ public class GameController : MonoBehaviour
 
 
     public void GameOver(GameObject loser){
+        
         panel_text.SetActive(true);
-        Debug.Log(Hero);
+
         string playerName = loser.name == "Bowman" ? "Kristen" : "Kim";
         if (loser.name == Hero){
             start_end_text.text= $"You Lost!\n{playerName} is the winner";
-            enemy.SetActive(false);
-            hero.SetActive(false);
-
+        
         } else {
             start_end_text.text= $"You Won!\n{playerName} is the winner";
-            hero.SetActive(false);
-            enemy.SetActive(false);
         }
 
         //Activate winner Avatar
         if (loser.name == "Mage"){
             bowman_select.SetActive(true);
-            GameObject mage_pad = this.GetComponent<Selection_Script>().mage_pad;
-            mage_pad.SetActive(false);
 
         } else {
-            mage_select.SetActive(true);
-            GameObject bowman_pad = this.GetComponent<Selection_Script>().bowman_pad;
-            bowman_pad.SetActive(false);
+            mage_select.SetActive(true);   
         }
+
+        GameObject mage_pad = this.GetComponent<Selection_Script>().mage_pad;
+        GameObject bowman_pad = this.GetComponent<Selection_Script>().bowman_pad;
+
+        enemy.SetActive(false);
+        hero.SetActive(false);
+        mage_pad.SetActive(false);
+        bowman_pad.SetActive(false);
 
         Invoke("Restart",3);
     }
