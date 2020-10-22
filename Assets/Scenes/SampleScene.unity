@@ -743,9 +743,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89f2b1ee0433f2419855343c55b6022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AxePreFab: {fileID: 0}
-  BowPreFab: {fileID: 0}
-  GavalinPreFab: {fileID: 0}
+  AxePreFab: {fileID: 1845398634}
+  BowPreFab: {fileID: 12541018}
+  SwordPreFab: {fileID: 1058909634}
 --- !u!114 &201434660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,13 +760,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 201434658}
   healthFill: {fileID: 1301545470}
-  magicFill: {fileID: 588677657}
-  health: 60
-  magic: 80
-  action: 40
-  defense: 50
-  range: 70
-  speed: 45
+  Health: 80
+  Dexterity: 50
+  Strength: 70
+  speed: 40
   nextTurn: 0
 --- !u!1 &299987065
 GameObject:
@@ -2010,7 +2007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AxePreFab: {fileID: 1845398634}
   BowPreFab: {fileID: 12541018}
-  GavalinPreFab: {fileID: 1058909634}
+  SwordPreFab: {fileID: 1905062759}
 --- !u!95 &745753858
 Animator:
   serializedVersion: 3
@@ -2044,13 +2041,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 745753858}
   healthFill: {fileID: 1663717215}
-  magicFill: {fileID: 694018696}
-  health: 85
-  magic: 40
-  action: 60
-  defense: 50
-  range: 60
-  speed: 70
+  Health: 60
+  Dexterity: 60
+  Strength: 40
+  speed: 50
   nextTurn: 0
 --- !u!1 &760765731
 GameObject:
@@ -3535,6 +3529,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 715696214653729674, guid: ae8aaa0eaa0c2ae448dbf2ad56b8ad5e, type: 3}
   m_PrefabInstance: {fileID: 715696214300456929}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1905062759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6387237159082720610, guid: 693394b8990a8a1489a13ff8027e9a0a, type: 3}
+  m_PrefabInstance: {fileID: 1414655150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1908482190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,7 +3837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 715696214653729677, guid: ae8aaa0eaa0c2ae448dbf2ad56b8ad5e, type: 3}
       propertyPath: dodge
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae8aaa0eaa0c2ae448dbf2ad56b8ad5e, type: 3}
@@ -3947,7 +3946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4582311161322628836, guid: 3e2b8056056c748429b974a229603a3c, type: 3}
       propertyPath: dodge
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e2b8056056c748429b974a229603a3c, type: 3}
@@ -4056,7 +4055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6387237159082720612, guid: 693394b8990a8a1489a13ff8027e9a0a, type: 3}
       propertyPath: dodge
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6387237159082720612, guid: 693394b8990a8a1489a13ff8027e9a0a, type: 3}
       propertyPath: weaponName

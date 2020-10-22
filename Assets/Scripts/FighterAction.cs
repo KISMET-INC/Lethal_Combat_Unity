@@ -15,7 +15,7 @@ public class FighterAction : MonoBehaviour
     private GameObject BowPreFab;
 
     [SerializeField]
-    private GameObject GavalinPreFab;
+    private GameObject SwordPreFab;
 
     /*[SerializeField]
     private Sprite faceIcon; //for changing face/profile icon ex. dead, grimace, etc. NOT NECESSARY */
@@ -43,7 +43,9 @@ public class FighterAction : MonoBehaviour
             BowPreFab.GetComponent<WeaponScript>().Damage(target);
         } else if (btn.CompareTo("sword") == 0)
         {
-            GavalinPreFab.GetComponent<WeaponScript>().Damage(target);
+            SwordPreFab.GetComponent<WeaponScript>().Damage(target);
         }
+
     }
+
 }

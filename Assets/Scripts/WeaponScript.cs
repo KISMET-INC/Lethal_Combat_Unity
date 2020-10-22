@@ -9,7 +9,7 @@ public class WeaponScript : MonoBehaviour
 
     [Header("Attributes")]
     public string weaponName;
-    public int baseDamage;
+    public double baseDamage;
     public string multiplier;
     public int dodge;
 
@@ -28,32 +28,26 @@ public class WeaponScript : MonoBehaviour
         attackerStats = owner.GetComponent<FighterStats>();
         targetStats = target.GetComponent<FighterStats>();
 
-        if (Random.Range(0, 10) >= dodge) //switch back to less than
+        if (Random.Range(0, 10) <= dodge)
         {
-            damage = 5;
-            // damage = 0;
-        // } else if (multiplier == "Dexterity")
-        // {
-        //     damage = baseDamage * (attackerStats.Dexterity/100);
-        // } else if (multiplier == "Strength")
-        // {
-        //     damage = baseDamage * (attackerStats.Strength/100);
+            damage = 3;
+        } else if (multiplier == "Dexterity")
+        {
+            damage = (int)(baseDamage * (double)(attackerStats.Dexterity/100));
+            Debug.Log(damage);
+        } else if (multiplier == "Strength")
+        {
+            damage =  (int)(baseDamage * (double)(attackerStats.Strength/100));
+            Debug.Log(damage);
         } else
         {
-            Debug.Log("PLAYER DODGED! D:");
+            Debug.Log("Something went wrong...");
         }
 
-        targetStats.health -= damage;
-
-        if(targetStats.health < 1)
-            {
-                target.tag = "Dead";
-                // Destroy(healthFill);  Leave these two for Stat script..?
-                // Destroy(gameObject);
-            }
+        targetStats.Health -= damage;
+        targetStats.UpdateHealthBar();
 
         GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
-
     }
 }
