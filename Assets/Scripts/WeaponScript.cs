@@ -13,6 +13,7 @@ public class WeaponScript : MonoBehaviour
     public string multiplier;
     public int dodge;
 
+    private string dodged = "";
     private int damage;
     private FighterStats attackerStats;
     private FighterStats targetStats;
@@ -37,6 +38,7 @@ public class WeaponScript : MonoBehaviour
         if (Random.Range(0, 10) <= dodge)
         {
             damage = 3;
+            dodged = "\nShe DODGED it like a champ!";
         } else if (multiplier == "Dexterity")
         {
             damage = (int)(baseDamage * (double)(attackerStats.Dexterity/100.00));
@@ -54,6 +56,11 @@ public class WeaponScript : MonoBehaviour
 
         GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
+
+        string playerName = target.name == "Bowman" ? "Kristen the Mage" : "Kim the Bowman";
+        GameControllerObj.GetComponent<GameController>().narration_text.gameObject.SetActive(true);
+        GameControllerObj.GetComponent<GameController>().narration_text.text = $"{playerName} was attacked with the {weaponName}.{dodged}";
+        
 
         Invoke("ContinueGame", 1);
     }
