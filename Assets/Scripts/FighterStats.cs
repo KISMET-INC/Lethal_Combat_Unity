@@ -54,17 +54,19 @@ public class FighterStats : MonoBehaviour, IComparable
     public void UpdateHealthBar()
     {
         if(Health < 1)
-            {
-                tag = "Dead";
-                Destroy(healthFill);
-                // Destroy(gameObject);
-            }else
-            {
-                xNewHealthScale = healthScale.x  * (Health/startHealth);
-                healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
-            }
+        {
+            tag = "Dead";
+            Destroy(healthFill);
+            // Destroy(gameObject);
+            gameObject.SetActive(false);
+            Debug.Log("DEATH");
+        }else
+        {
+            xNewHealthScale = healthScale.x  * ((float)Health/(float)startHealth);
+            healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
 
-        Invoke("ContinueGame", 2);
+            // Invoke("ContinueGame", 2);
+        }
     }
 
     // public void updateMagicFill(float cost)

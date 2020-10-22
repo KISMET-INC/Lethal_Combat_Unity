@@ -33,12 +33,10 @@ public class WeaponScript : MonoBehaviour
             damage = 3;
         } else if (multiplier == "Dexterity")
         {
-            damage = (int)(baseDamage * (double)(attackerStats.Dexterity/100));
-            Debug.Log(damage);
+            damage = (int)(baseDamage * (double)(attackerStats.Dexterity/100.00));
         } else if (multiplier == "Strength")
         {
-            damage =  (int)(baseDamage * (double)(attackerStats.Strength/100));
-            Debug.Log(damage);
+            damage =  (int)(baseDamage * (double)(attackerStats.Strength/100.00));
         } else
         {
             Debug.Log("Something went wrong...");
@@ -49,5 +47,12 @@ public class WeaponScript : MonoBehaviour
 
         GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
+
+        Invoke("ContinueGame", 1);
+    }
+
+    void ContinueGame()
+    {
+        GameObject.Find("GameControllerObject").GetComponent<GameController>().NextTurn();
     }
 }
