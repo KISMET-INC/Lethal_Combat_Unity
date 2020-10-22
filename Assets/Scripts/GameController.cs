@@ -93,6 +93,7 @@ public class GameController : MonoBehaviour
     public void GameOver(GameObject loser){
         
         panel_text.SetActive(true);
+<<<<<<< HEAD
 
         string playerName = loser.name == "Bowman" ? "Kristen" : "Kim";
         if (loser.name == Hero){
@@ -100,6 +101,19 @@ public class GameController : MonoBehaviour
         
         } else {
             start_end_text.text= $"You Won!\n{playerName} is the winner";
+=======
+        Debug.Log(Hero);
+
+        if (loser.name == Hero){
+            start_end_text.text= $"You Lost! The {enemy.name} is the winner";
+            enemy.SetActive(false);
+            hero.SetActive(false);
+
+        } else {
+            start_end_text.text= $"You Won! The {Hero} is the winner";
+            hero.SetActive(false);
+            enemy.SetActive(false);
+>>>>>>> parent of 6b22a38... Updated Narration text as well as player names (kim and kristen) added
         }
 
         //Activate winner Avatar
