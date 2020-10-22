@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,7 +38,7 @@ public class GameController : MonoBehaviour
         Debug.Log(Hero);
 
         if (loser.name == Hero){
-            start_end_text.text= $"You Lost! The {loser.name} is the winner";
+            start_end_text.text= $"You Lost! The {enemy.name} is the winner";
             enemy.SetActive(false);
             hero.SetActive(false);
 

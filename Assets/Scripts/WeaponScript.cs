@@ -28,6 +28,12 @@ public class WeaponScript : MonoBehaviour
         attackerStats = owner.GetComponent<FighterStats>();
         targetStats = target.GetComponent<FighterStats>();
 
+        owner.GetComponent<Animator>().Play(weaponName);
+        if (owner.name == "Mage" && weaponName == "Sword")
+        {
+        owner.GetComponent<Animator>().Play("Bow");
+        }
+
         if (Random.Range(0, 10) <= dodge)
         {
             damage = 3;
@@ -42,8 +48,11 @@ public class WeaponScript : MonoBehaviour
             Debug.Log("Something went wrong...");
         }
 
+        target.GetComponent<Animator>().Play("damage");
         targetStats.Health -= damage;
         targetStats.UpdateHealthBar();
+
+
 
         GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
