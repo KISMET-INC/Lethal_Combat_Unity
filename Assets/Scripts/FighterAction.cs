@@ -17,17 +17,6 @@ public class FighterAction : MonoBehaviour
     [SerializeField]
     private GameObject SwordPreFab;
 
-    /*[SerializeField]
-    private Sprite faceIcon; //for changing face/profile icon ex. dead, grimace, etc. NOT NECESSARY */
-
-    // private GameObject currentAction;
-
-    void Awake()
-    {
-       // hero = GameObject.FindGameObjectWithTag("Hero");
-        //enemy = GameObject.FindGameObjectWithTag("Enemy");
-    }
-
     public void SelectWeapon(string btn)
     {
         hero = GameObject.FindGameObjectWithTag("Hero");
@@ -49,7 +38,5 @@ public class FighterAction : MonoBehaviour
         {
             SwordPreFab.GetComponent<WeaponScript>().Damage(target);
         }
-
     }
-
 }

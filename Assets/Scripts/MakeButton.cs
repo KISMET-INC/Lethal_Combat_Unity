@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MakeButton : MonoBehaviour
-{
-    private GameObject Player1;
+public class MakeButton : MonoBehaviour{
 
+    private GameObject Player1;
+    public GameObject ActionMenu;
     void Start()
     {
         string temp = gameObject.name;
         gameObject.GetComponent<Button>().onClick.AddListener(() => AttachCallback(temp));
-        // Player1 = GameObject.FindGameObjectWithTag("Hero");
     }
 
     private void AttachCallback(string btn)
@@ -28,6 +27,6 @@ public class MakeButton : MonoBehaviour
         {
             Player1.GetComponent<FighterAction>().SelectWeapon("sword");
         }
-
+        ActionMenu.SetActive(false);
     }
 }
