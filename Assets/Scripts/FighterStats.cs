@@ -9,7 +9,7 @@ public class FighterStats : MonoBehaviour
     [SerializeField]
     private GameObject healthFill;
 
-    private Animator animator;
+    // private Animator animator;
 
     [Header("Stats")]
     public int Health;
@@ -43,7 +43,7 @@ public class FighterStats : MonoBehaviour
     {
         if(Health < 1)
         {
-            // animator.Play("Die");
+            // GetComponent<Animator>().Play("Die"); //happens to close to the SetActive(false), potentially add time delay
             tag = "Dead";
             Destroy(healthFill);
             gameObject.SetActive(false);
