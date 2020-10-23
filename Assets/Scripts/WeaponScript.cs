@@ -53,7 +53,7 @@ public class WeaponScript : MonoBehaviour
         GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
 
-        string playerName = target.name == "Bowman" ? "Kristen the Mage" : "Kim the Bowman";
+        string playerName = target.name == "Kim" ? "Kristen the Mage" : "Kim the Viking";
         GameControllerObj.GetComponent<GameController>().narration_text.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().narration_text.text = $"{playerName} was attacked with the {weaponName}.{dodged}";
 
