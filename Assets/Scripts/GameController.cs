@@ -94,14 +94,14 @@ public class GameController : MonoBehaviour
     public void GameOver(GameObject loser){
         panel_text.SetActive(true);
         Debug.Log(Hero);
-
+        string playerName = loser.name == "Bowman" ? "Kristen" : "Kim";
         if (loser.name == Hero){
-            start_end_text.text= $"You Lost! The {enemy.name} is the winner";
+            start_end_text.text= $"You Lost!\n{playerName} is the winner";
             enemy.SetActive(false);
             hero.SetActive(false);
 
         } else {
-            start_end_text.text= $"You Won! The {Hero} is the winner";
+            start_end_text.text= $"You Won!\n{playerName} is the winner";
             hero.SetActive(false);
             enemy.SetActive(false);
         }
