@@ -29,7 +29,7 @@ public class WeaponScript : MonoBehaviour
         attackerStats = owner.GetComponent<FighterStats>();
         targetStats = target.GetComponent<FighterStats>();
 
-        //owner.GetComponent<Animator>().Play(weaponName);
+        owner.GetComponent<Animator>().Play(weaponName);
 
         if (Random.Range(0, 10) <= dodge)
         {
@@ -46,7 +46,7 @@ public class WeaponScript : MonoBehaviour
             Debug.Log("Something went wrong...");
         }
 
-        //target.GetComponent<Animator>().Play("damage");
+        target.GetComponent<Animator>().Play("damage");
         targetStats.Health -= damage;
         targetStats.UpdateHealthBar();
 
