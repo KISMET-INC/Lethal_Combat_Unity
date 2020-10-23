@@ -49,12 +49,12 @@ public class GameController : MonoBehaviour
                 {
                     string WeaponType =  "bow";
                     enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
-                } 
+                }
                 else if (rand == 1)
                 {
                     string WeaponType =  "axe";
                     enemy.GetComponent<FighterAction>().SelectWeapon(WeaponType);
-                } 
+                }
                 else if (rand == 2)
                 {
                     string WeaponType =  "sword";
@@ -71,9 +71,9 @@ public class GameController : MonoBehaviour
         this.enemy = enemy;
         battleText.gameObject.SetActive(true);
         if(hero.name == "Kristen"){
-            battleText.text= $"You Chose Kristen the {hero.name}!\n FIGHT!";
+            battleText.text= $"You Chose Kristen the Samurai!\n FIGHT!";
         } else {
-            battleText.text= $"You Chose Kim the {hero.name}!\n FIGHT!";
+            battleText.text= $"You Chose Kim the Viking!\n FIGHT!";
         }
 
         heroTurn = true;
@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
     }
 
 
-    
+
     private void Awake()
     {
         battleMenu = GameObject.Find("ActionMenu");
@@ -122,7 +122,7 @@ public class GameController : MonoBehaviour
 
         Invoke("Restart",3);
     }
-    
+
     private void Restart() {
         SceneManager.LoadScene("SampleScene");
     }

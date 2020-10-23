@@ -43,7 +43,7 @@ public class FighterStats : MonoBehaviour
     {
         if(Health < 1)
         {
-            // this.GetComponent<Animator>().Play("Die");
+            // GetComponent<Animator>().Play("Die"); //happens to close to the SetActive(false), potentially add time delay
             tag = "Dead";
             Destroy(healthFill);
             gameObject.SetActive(false);
