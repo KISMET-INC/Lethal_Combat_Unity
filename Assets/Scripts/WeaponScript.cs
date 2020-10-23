@@ -30,10 +30,6 @@ public class WeaponScript : MonoBehaviour
         targetStats = target.GetComponent<FighterStats>();
 
         owner.GetComponent<Animator>().Play(weaponName);
-        if (owner.name == "Mage" && weaponName == "Sword")
-        {
-        owner.GetComponent<Animator>().Play("Bow");
-        }
 
         if (Random.Range(0, 10) <= dodge)
         {
@@ -60,7 +56,7 @@ public class WeaponScript : MonoBehaviour
         string playerName = target.name == "Bowman" ? "Kristen the Mage" : "Kim the Bowman";
         GameControllerObj.GetComponent<GameController>().narration_text.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().narration_text.text = $"{playerName} was attacked with the {weaponName}.{dodged}";
-        
+
 
         Invoke("ContinueGame", 1);
     }
