@@ -57,12 +57,16 @@ public class WeaponScript : MonoBehaviour
         GameControllerObj.GetComponent<GameController>().narration_text.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().narration_text.text = $"{playerName} was attacked with the {weaponName}.{dodged}";
 
-
-        Invoke("ContinueGame", 1);
+        if(weaponName == "Bow"){
+            Invoke("ContinueGame", 1f);
+        } else {
+            Invoke("ContinueGame", 2f);
+        }
     }
 
     void ContinueGame()
     {
         GameObject.Find("GameControllerObject").GetComponent<GameController>().NextTurn();
     }
+
 }
