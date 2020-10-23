@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour
         this.hero = hero;
         this.enemy = enemy;
         battleText.gameObject.SetActive(true);
-        if(hero.name == "Mage"){
+        if(hero.name == "Kristen"){
             battleText.text= $"You Chose Kristen the {hero.name}!\n FIGHT!";
         } else {
             battleText.text= $"You Chose Kim the {hero.name}!\n FIGHT!";
@@ -94,7 +94,7 @@ public class GameController : MonoBehaviour
     public void GameOver(GameObject loser){
         panel_text.SetActive(true);
         Debug.Log(Hero);
-        string playerName = loser.name == "Bowman" ? "Kristen" : "Kim";
+        string playerName = loser.name == "Kim" ? "Kristen" : "Kim";
         if (loser.name == Hero){
             start_end_text.text= $"You Lost!\n{playerName} is the winner";
 
@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
         }
 
         //Activate winner Avatar
-        if (loser.name == "Mage"){
+        if (loser.name == "Kristen"){
             bowman_select.SetActive(true);
 
         } else {

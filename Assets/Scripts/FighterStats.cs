@@ -9,6 +9,8 @@ public class FighterStats : MonoBehaviour
     [SerializeField]
     private GameObject healthFill;
 
+    private Animator animator;
+
     [Header("Stats")]
     public int Health;
     public int Dexterity;
@@ -41,6 +43,7 @@ public class FighterStats : MonoBehaviour
     {
         if(Health < 1)
         {
+            // animator.Play("Die");
             tag = "Dead";
             Destroy(healthFill);
             gameObject.SetActive(false);
