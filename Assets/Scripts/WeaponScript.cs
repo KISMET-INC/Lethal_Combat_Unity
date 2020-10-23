@@ -58,7 +58,7 @@ public class WeaponScript : MonoBehaviour
         GameControllerObj.GetComponent<GameController>().narration_text.text = $"{playerName} was attacked with the {weaponName}.{dodged}";
 
 
-        Invoke("ContinueGame", 1);
+        Invoke("ContinueGame", 2f);
     }
 
     void ContinueGame()
