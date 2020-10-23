@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
 
     public Text battleText;
     public Text narration_text;
+    public GameObject hud;
 
     public bool heroTurn = true;
 
@@ -70,6 +71,7 @@ public class GameController : MonoBehaviour
         this.hero = hero;
         this.enemy = enemy;
         battleText.gameObject.SetActive(true);
+        hud.GetComponent<Canvas>().enabled = true;
         if(hero.name == "Kristen"){
             battleText.text= $"You Chose Kristen the Samurai!\n FIGHT!";
         } else {
