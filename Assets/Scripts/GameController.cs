@@ -121,6 +121,7 @@ public class GameController : MonoBehaviour
         hero.SetActive(false);
         mage_pad.SetActive(false);
         bowman_pad.SetActive(false);
+        hud.GetComponent<Canvas>().enabled = false;
 
         Invoke("Restart",3);
     }
