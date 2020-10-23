@@ -97,26 +97,28 @@ public class GameController : MonoBehaviour
         string playerName = loser.name == "Bowman" ? "Kristen" : "Kim";
         if (loser.name == Hero){
             start_end_text.text= $"You Lost!\n{playerName} is the winner";
-            enemy.SetActive(false);
-            hero.SetActive(false);
 
         } else {
             start_end_text.text= $"You Won!\n{playerName} is the winner";
-            hero.SetActive(false);
-            enemy.SetActive(false);
+
         }
 
         //Activate winner Avatar
         if (loser.name == "Mage"){
             bowman_select.SetActive(true);
-            GameObject mage_pad = this.GetComponent<Selection_Script>().mage_pad;
-            mage_pad.SetActive(false);
 
         } else {
             mage_select.SetActive(true);
-            GameObject bowman_pad = this.GetComponent<Selection_Script>().bowman_pad;
-            bowman_pad.SetActive(false);
+
         }
+
+        GameObject mage_pad = this.GetComponent<Selection_Script>().mage_pad;
+        GameObject bowman_pad = this.GetComponent<Selection_Script>().bowman_pad;
+
+        enemy.SetActive(false);
+        hero.SetActive(false);
+        mage_pad.SetActive(false);
+        bowman_pad.SetActive(false);
 
         Invoke("Restart",3);
     }
@@ -124,5 +126,6 @@ public class GameController : MonoBehaviour
     private void Restart() {
         SceneManager.LoadScene("SampleScene");
     }
-
 }
+
+

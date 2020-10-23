@@ -13,11 +13,11 @@ public class WeaponScript : MonoBehaviour
     public string multiplier;
     public int dodge;
 
+    private string dodged = "";
     private int damage;
     private FighterStats attackerStats;
     private FighterStats targetStats;
     private GameObject GameControllerObj;
-    private string dodged = "";
 
     void Awake()
     {
@@ -57,9 +57,10 @@ public class WeaponScript : MonoBehaviour
         GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
         GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
 
-        string playerName = target.name == "Bowman" ? "Kim the Bowman" : "Kristen the Mage";
+        string playerName = target.name == "Bowman" ? "Kristen the Mage" : "Kim the Bowman";
         GameControllerObj.GetComponent<GameController>().narration_text.gameObject.SetActive(true);
-        GameControllerObj.GetComponent<GameController>().narration_text.text = $"{playerName} was attacked with the {weaponName}. {dodged}";
+        GameControllerObj.GetComponent<GameController>().narration_text.text = $"{playerName} was attacked with the {weaponName}.{dodged}";
+        
 
         Invoke("ContinueGame", 1);
     }

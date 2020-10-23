@@ -20,7 +20,7 @@ public class FighterStats : MonoBehaviour
     [HideInInspector]
     public int nextTurn;
 
-   // private bool dead = false;
+    private bool dead = false;
 
     //Resizing health and magic bar ---> transformers
     private Transform healthTransform;
