@@ -4,28 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FighterStats : MonoBehaviour, IComparable
+public class FighterStats : MonoBehaviour
 {
-    [SerializeField]
-    private Animator animator;
-
     [SerializeField]
     private GameObject healthFill;
 
-    [SerializeField]
-    private GameObject magicFill;
+    // private Animator animator;
 
     [Header("Stats")]
-    public float health;
-    public float magic;
-    public float action; //strength of action
-    public float defense; //strength of defense
-    public float range; //strength of range action
-    public float speed; //move order, extra turns
-    // public float experience;
+    public int Health;
+    public int Dexterity;
+    public int Strength;
+    public int speed;
 
-    private float startHealth;
-    private float startMagic;
+    private int startHealth;
 
     [HideInInspector]
     public int nextTurn;
@@ -34,84 +26,37 @@ public class FighterStats : MonoBehaviour, IComparable
 
     //Resizing health and magic bar ---> transformers
     private Transform healthTransform;
-    private Transform magicTransform;
 
     private Vector2 healthScale;
-    private Vector2 magicScale;
 
     private float xNewHealthScale;
-    private float xNewMagicScale;
-
-    private GameObject GameControllerObj;
 
     void Awake()
     {
         healthTransform = healthFill.GetComponent<RectTransform>();
         healthScale = healthFill.transform.localScale;
 
-        magicTransform = magicFill.GetComponent<RectTransform>();
-        magicScale = magicFill.transform.localScale;
-
-        startHealth = health;
-        startMagic = magic;
-
-        GameControllerObj = GameObject.Find("GameControllerObject");
+        startHealth = Health;
     }
 
-    public void ReceiveDamage(float damage)
+    public void UpdateHealthBar()
     {
-        animator.Play("damage");
-        health -= damage;
-
-        //damage text
-
-        if(health < 1)
+        if(Health < 1)
         {
-            dead = true;
-            gameObject.tag = "Dead";
+            GetComponent<Animator>().Play("Die");
+            tag = "Dead";
             Destroy(healthFill);
-            Destroy(gameObject);
-        } else if (damage > 0)
+            Invoke("Deactivate", 1);
+            Debug.Log("DEATH");
+        }else
         {
-            xNewHealthScale = healthScale.x  * (health/startHealth);
+            xNewHealthScale = healthScale.x  * ((float)Health/(float)startHealth);
             healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
         }
-
-        GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
-        GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
-
-        Invoke("ContinueGame", 2);
     }
 
-    public void updateMagicFill(float cost)
+    void Deactivate()
     {
-        if (cost > 0)
-        {
-            xNewMagicScale = magicScale.x * (magic/startMagic);
-            magicFill.transform.localScale = new Vector2(xNewMagicScale, magicScale.y);
-            magic -= cost;
-        }
+        gameObject.SetActive(false);
     }
-
-    public bool GetDead()
-    {
-        return gameObject.tag == "Dead";
-    }
-
-    void ContinueGame()
-    {
-        GameObject.Find("GameControllerObject").GetComponent<GameController>().NextTurn();
-    }
-
-    public void CalculateNextTurn(int currentTurn)
-    {
-        nextTurn = currentTurn + Mathf.CeilToInt(100f/speed);
-    }
-
-    public int CompareTo(object otherStat)
-    {
-        int nex = nextTurn.CompareTo(((FighterStats)otherStat).nextTurn);
-        return nex;
-    }
-
 }
