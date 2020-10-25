@@ -68,7 +68,7 @@ public class FighterAction : MonoBehaviour
         if(hero == null || enemy == null){
         
         } else {
-            float speed = 4f;
+            float speed = 10f;
 
 
             switch(state){
@@ -76,7 +76,7 @@ public class FighterAction : MonoBehaviour
                     break;
 
                 case State.Charging:        
-                    Vector3 chargeVect = target.name == "Kim" ? new Vector3(2.0f,transform.position.y,transform.position.z) : new Vector3(-2.0f,transform.position.y,transform.position.z);
+                    Vector3 chargeVect = target.name == "Kim" ? new Vector3(1.5f,transform.position.y,transform.position.z) : new Vector3(-1.5f,transform.position.y,transform.position.z);
 
                     this.transform.position  += (chargeVect - transform.position)*speed*Time.deltaTime;
 
@@ -87,7 +87,7 @@ public class FighterAction : MonoBehaviour
                     break;
 
                 case State.Returning:   
-                Vector3 retVect = target.name == "Kim" ? new Vector3(-4.5f,transform.position.y,transform.position.z) : new Vector3(4.5f,transform.position.y,transform.position.z);
+                Vector3 retVect = target.name == "Kim" ? new Vector3(-3.5f,transform.position.y,transform.position.z) : new Vector3(3.2f,transform.position.y,transform.position.z);
 
                 Debug.Log(transform.position);
                 this.transform.position  += (retVect - transform.position)*speed*Time.deltaTime;
