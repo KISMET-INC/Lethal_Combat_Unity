@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class FighterStats : MonoBehaviour
 {
@@ -53,10 +53,12 @@ public class FighterStats : MonoBehaviour
             xNewHealthScale = healthScale.x  * ((float)Health/(float)startHealth);
             healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
         }
+
     }
 
     void Deactivate()
     {
         gameObject.SetActive(false);
     }
+
 }
