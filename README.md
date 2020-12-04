@@ -1,4 +1,3 @@
-
 # Lethal Combat
 [Play Here](https://simmer.io/@kmoreland909/lethal-combat-v2)
 
@@ -70,3 +69,4 @@ Any questions or comments about this repository and its contents can be emailed 
 ## Authors and Acknowledgment
 
 We would like to thank [Kurt Kaiser](https://www.youtube.com/channel/UCQxRnFeZxsNscOL-D6x9-YQ) for his amazing YouTube tutorial channel.
+
